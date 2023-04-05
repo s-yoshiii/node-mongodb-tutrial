@@ -14,3 +14,5 @@ const FoodSchema = new mongoose.Schema({
     },
   },
 });
+
+module.exports = Food;
