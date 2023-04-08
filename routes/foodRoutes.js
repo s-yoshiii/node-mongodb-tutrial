@@ -20,4 +20,20 @@ app.post("/food", async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+app.patch("/food/:id", async (req, res) => {
+  try {
+    await foodModel.findByIdAndUpdate(req.params.id, req.body);
+    await foodModel.save();
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+app.delete("/food/:id", async (req, res) => {
+  try {
+    await foodModel.findByIdAndDelete(req.params.id);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 module.exports = app;
